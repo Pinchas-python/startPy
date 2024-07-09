@@ -8,16 +8,12 @@ from infra.config.config_provider import configuration
 
 
 class TestClass(TestBase):
-    @pytest.fixture(autouse=True, scope='class')
-    def classscope(self):
-        print('AAAAA')
-        yield
-        print('BBBBBB')
 
-    @pytest.mark.tc14
+
+    @pytest.mark.smoke
+    @pytest.mark.usefixtures("before_after_test")
     def test_10007_(self):
-        browser = Browser()
-        page: YTPage = browser.navigate("https://tiles-tiny.lupa.co.il/", YTPage)
+        page: YTPage = self.browser.navigate("https://web.eos.bnk-il.com/auth", YTPage)
         page.click_side_menu()
         print('past playwright')
 
