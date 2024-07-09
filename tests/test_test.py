@@ -36,8 +36,3 @@ class TestClass(TestBase):
         assert actual_result == expected_result_welcoome
 
 
-
-    @pytest.mark.smoke
-    def test_10008_(self):
-        assert True is False
-

@@ -1,0 +1,1 @@
+To run the tests, open the tests folder and test_test.py, there are two negative tests and one normal test
