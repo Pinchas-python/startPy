@@ -1,3 +1,4 @@
+import os
 from typing import Type
 from playwright.sync_api import sync_playwright
 from infra.page_base import PageBase
@@ -11,7 +12,9 @@ class Browser:
 
     def __init__(self):
         playwright = sync_playwright().start()
-        self.browser = playwright.chromium.launch(headless=False)
+        headless_env = os.getenv("HEADLESS", "true").lower()
+        headless = headless_env in ("1", "true", "yes", "on")
+        self.browser = playwright.chromium.launch(headless=headless)
         self.context = self.browser.new_context()
         self.context.tracing.start(screenshots=True, snapshots=True)
         self.page = self.context.new_page()
