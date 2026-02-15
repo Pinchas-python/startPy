@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   ci:
@@ -41,8 +39,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/startpy:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/startpy:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/startpy:${{ github.sha }}
 
  

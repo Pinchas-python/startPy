@@ -14,8 +14,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application files
 COPY . .
 
-# Set the default command to run tests with Playwright
+# Set the default command to run tests with Playwright ghg
 ENV PYTHONUNBUFFERED=1
 ENV DISPLAY=:99
 
 CMD ["bash", "-lc", "Xvfb :99 -screen 0 1280x720x24 & pytest -vv --alluredir=/app/allure-results --tracing=retain-on-failure --video=retain-on-failure --screenshot=only-on-failure"]
+ 
