@@ -1,0 +1,16 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache artifacts
+__pycache__/
+*.py[cod]
+
+# Test/cache outputs
+.pytest_cache/
+trace.zip
+
+# Editor/OS files
+*.log
+.DS_Store
+Thumbs.db
